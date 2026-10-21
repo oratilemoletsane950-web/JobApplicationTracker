@@ -8,50 +8,31 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import {Button} from '@/components/ui/button';
+import {Text} from '@/components/ui/text';
 
-
-
-
-export default function HomeScreen() {
+import {useRouter} from 'expo-router';
+export default function HomeScreen() 
+{ 
+  const router = useRouter();
   return (
     <ThemedView>
-      Oratile
+
+      <Button onPress={() => router.push('/signup')}>
+        <Text>
+          Sign Up
+        </Text>
+      </Button>
+      
+
+      <Button onPress={() => router.push('/signin')}>
+        <Text>
+          Sign In
+        </Text>
+      </Button>
+
     </ThemedView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
-});
+
